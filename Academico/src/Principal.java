@@ -19,5 +19,7 @@ public class Principal {
 		System.out.println(d2 + "\n" + "--------------------------------------------------------------------------------------------------------------------");
 		System.out.println(a1.imprimirAluno());
 		
+		System.out.println(a1.getCurso());
+		
 	}
 }
