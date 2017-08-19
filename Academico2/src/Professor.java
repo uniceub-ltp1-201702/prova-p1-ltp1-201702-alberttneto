@@ -10,7 +10,6 @@ public class Professor {
 	
 
 	// toString
-	
 	@Override
 	public String toString() {
 		return "Professor [nome: " + nome + ", matricula: " + matricula + ", titulacao: " + titulacao + ", CPF: " + CPF
@@ -24,11 +23,9 @@ public class Professor {
 		this.matricula = matricula;
 		this.titulacao = titulacao;
 		CPF = cPF;
-		
+	}
 		
 	// Metodo set get
-		
-	}
 	public String getNome() {
 		return nome;
 	}

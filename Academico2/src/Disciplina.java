@@ -1,14 +1,12 @@
 
 public class Disciplina {
 
-	//Atributos disciplina
-	
+	//Atributos disciplina	
 	public String nome;
 	public String curso;
 	public int cargaHoraria;
 	
 	// Metodo construtor
-	
 	public Disciplina(String nome, String curso, int cargaHoraria) {
 		super();
 		this.nome = nome;
@@ -17,14 +15,13 @@ public class Disciplina {
 	}
 	
 	// toString
-	
 	@Override
 	public String toString() {
 		return "Disciplina [nome: " + nome + ", curso: " + curso + ", cargaHoraria: "
 				+ cargaHoraria + "]";
+	}
 	
 	// Metodo set e get
-	}
 	public String getNome() {
 		return nome;
 	}
