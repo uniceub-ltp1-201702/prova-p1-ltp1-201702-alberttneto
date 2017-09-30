@@ -1,5 +1,6 @@
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.ArrayList;
  
 public class BDSimulado {
@@ -135,19 +136,68 @@ public class BDSimulado {
 	}
 	
 	
-	//Questão 3a
-	public ArrayList<Ligacao> contaPorCliente(String cliente){
-		ArrayList<Ligacao> resultado = new ArrayList<Ligacao>();
+	//Questão 3a 3b
+	public ArrayList<String> contaPorCliente(String cliente){
+		ArrayList<String> resultado = new ArrayList<String>();
+		String cliente1 = getInfoCliente(cliente);
+		double ligacao = 0.05;
+		
 		
 		for (int i = 0; i < this.ligacoes.size(); i++) {
-			if (this.clientes.get(i).getNome().equals(cliente)) {
-				resultado.add(this.ligacoes.get(i));
+			LocalTime horaligini = this.ligacoes.get(i).getDtHoraIni().toLocalTime();
+			LocalTime horaligfim = this.ligacoes.get(i).getDtHoraFim().toLocalTime();
+			double timehora =  (horaligfim.getHour()*60) - (horaligini.getHour()*60);
+			double timemin = horaligini.getMinute() - horaligfim.getMinute();
+			double timesoma = timehora + timemin;
+			double custolig = timesoma * ligacao;
+			
+			
+			if (this.ligacoes.get(i).getClientes().getNome().equals(cliente)) {
+				resultado.add(cliente1 + "\n" + "Ligação: " + this.ligacoes.get(i).getDtHoraIni()  + "\t" + this.ligacoes.get(i).getTelDestino() + 
+						"\t" + this.ligacoes.get(i).getCidadeDest() + " - " + this.ligacoes.get(i).getUFDest() +"\t" + "Custo da ligação: "  + "R$ " +  custolig + "\n" );
 				
 			}
 			
 		}
 		return resultado;
 	}
+	
+	//Questão 3c
+	public ArrayList<String> contaDepoisDasVinte(String cliente){
+		ArrayList<String> resultado = new ArrayList<String>();
+		String cliente1 = getInfoCliente(cliente);
+		double ligacao = 0.02;
+		
+		
+		for (int i = 0; i < this.ligacoes.size(); i++) {
+			LocalTime horaligini = this.ligacoes.get(i).getDtHoraIni().toLocalTime();
+			LocalTime horaligfim = this.ligacoes.get(i).getDtHoraFim().toLocalTime();
+			double timehora = horaligini.getHour();
+			double custolig = 0;
+			double timemin = horaligfim.getMinute() - horaligini.getMinute();
+			if (timehora >= 20) {
+				custolig = timemin * ligacao;
+				
+				
+			}
+
+			
+			
+			if (this.ligacoes.get(i).getClientes().getNome().equals(cliente)) {
+				resultado.add(cliente1 + "\n" + "Ligação: " + this.ligacoes.get(i).getDtHoraIni()  + "\t" + this.ligacoes.get(i).getTelDestino() + 
+						"\t" + this.ligacoes.get(i).getCidadeDest() + " - " + this.ligacoes.get(i).getUFDest() +"\t" + "Custo da ligação: "  + "R$ " +  custolig + "\n");
+				
+			}
+			
+		}
+		return resultado;
+	}
+    
+	
+
+	
+
+	
     
 	
 	

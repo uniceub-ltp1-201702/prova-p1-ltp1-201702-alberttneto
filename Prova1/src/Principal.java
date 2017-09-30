@@ -27,8 +27,11 @@ public class Principal {
 	 ArrayList<Integer> getLigacoesUFDiferente = bds.ligacoesUFDiferente();
 	 System.out.println("Ligações realizadas por UF diferente:" + getLigacoesUFDiferente + "\n");
 	 
-	 ArrayList<Ligacao> getContaCliente = bds.contaPorCliente("José das Couves");
-	 System.out.println(getContaCliente);
+	 ArrayList<String> getContaPorCleinte = bds.contaPorCliente("Otaviano Neves");
+	 System.out.println(getContaPorCleinte + "\n");
+	 
+	 ArrayList<String> getContaDepoisDasVinte = bds.contaDepoisDasVinte("Otaviano Neves");
+	 System.out.println(getContaDepoisDasVinte);
 	}
 
 }
